@@ -1,0 +1,11 @@
+# Ignore dependencies
+node_modules/
+
+# Ignore build output
+.next/
+out/
+
+# Ignore system files
+.DS_Store
+npm-debug.log
+yarn-error.log
