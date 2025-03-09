@@ -1,0 +1,85 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    background: black;
+}
+
+.backgroundVideo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); /* Slight overlay for readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* 🔹 Title: Bright Cyan Glow */
+h1 {
+    font-size: 4rem;
+    letter-spacing: 3px;
+    color: #00FFFF;
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #008B8B;
+}
+
+/* 🔹 Description: Electric Blue Glow */
+p {
+    font-size: 1.8rem;
+    margin: 10px 0;
+    color: #00BFFF;
+    text-shadow: 0 0 8px #00BFFF, 0 0 15px #1E90FF;
+}
+
+/* 🔹 Socials: Neon Pink */
+.socials {
+    margin-top: 15px;
+}
+
+.socials a {
+    color: #FF00FF;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: all 0.3s ease-in-out;
+    text-shadow: 0 0 8px #FF00FF, 0 0 12px #FF1493;
+}
+
+/* 🔹 Socials Hover Effect: Neon Violet */
+.socials a:hover {
+    color: #8A2BE2;
+    text-shadow: 0 0 12px #8A2BE2, 0 0 20px #9400D3;
+}
+
+/* 🔹 Mobile Optimization */
+@media (max-width: 768px) {
+    .backgroundVideo {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+    }
+    h1 { font-size: 3rem; }
+    p { font-size: 1.5rem; }
+    .socials a { font-size: 1.2rem; margin: 0 10px; }
+}
