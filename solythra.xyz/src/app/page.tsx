@@ -1,24 +1,45 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
     <main className="container">
-      {/* Background Video */}
-      <video autoPlay muted loop playsInline preload="none" className="backgroundVideo">
-        <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486433/background_fgmxub.webm" type="video/webm" />
-        <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486739/background_zdc12g.mp4" type="video/mp4" />
-        {/* Fallback for unsupported browsers */}
+      {/* Background Video or GIF Fallback */}
+      {!isMobile ? (
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          preload="auto" 
+          className="backgroundVideo"
+        >
+          <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486433/background_fgmxub.webm" type="video/webm" />
+          <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486739/background_zdc12g.mp4" type="video/mp4" />
+        </video>
+      ) : (
         <Image
           src="/videos/background.gif"
           alt="Background Animation"
           width={1920}
           height={1080}
-          className="w-full h-full object-cover"
+          className="backgroundGif"
           priority
         />
-      </video>
+      )}
 
       {/* Content */}
       <div className="content">
