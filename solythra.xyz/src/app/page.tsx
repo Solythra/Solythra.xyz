@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <main className="container">
@@ -8,7 +10,14 @@ export default function Home() {
         <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486433/background_fgmxub.webm" type="video/webm" />
         <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486739/background_zdc12g.mp4" type="video/mp4" />
         {/* Fallback for unsupported browsers */}
-        <img src="/videos/background.gif" alt="Background Animation" className="w-full h-full object-cover" />
+        <Image
+          src="/videos/background.gif"
+          alt="Background Animation"
+          width={1920}
+          height={1080}
+          className="w-full h-full object-cover"
+          priority
+        />
       </video>
 
       {/* Content */}
