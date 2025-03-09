@@ -2,10 +2,10 @@ export default function Home() {
   return (
     <div className="container">
       <video autoPlay muted loop playsInline preload="none" className="backgroundVideo">
-        <source src="/background.webm" type="video/webm" />
-        <source src="/background.mp4" type="video/mp4" />
+        <source src="/videos/background.webm" type="video/webm" />
+        <source src="/videos/background.mp4" type="video/mp4" />
 	{/* Fallback GIF if videos don't load */}
-        <img src="/background.gif" alt="Background Animation" className="w-full h-full object-cover" />
+        <img src="/videos/background.gif" alt="Background Animation" className="w-full h-full object-cover" />
       </video>
 
       <div className="content">
