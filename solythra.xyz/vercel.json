@@ -1,0 +1,10 @@
+{
+  "build": {
+    "env": {
+      "NEXT_PRIVATE_TURBOPACK": "0"
+    }
+  },
+  "routes": [
+    { "src": "/videos/(.*)", "dest": "/public/videos/$1" }
+  ]
+}
