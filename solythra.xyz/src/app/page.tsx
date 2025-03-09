@@ -2,10 +2,10 @@ export default function Home() {
   return (
     <div className="container">
       <video autoPlay muted loop playsInline preload="none" className="backgroundVideo">
-        <source src="https://nzfqms5c4kwquboy.public.blob.vercel-storage.com/background-1Mbq61Ios3pMET02xmwZooHhJZspW5.webm" type="video/webm" />
-        <source src="https://nzfqms5c4kwquboy.public.blob.vercel-storage.com/background-v1CIQsbxatLMhluhddNonq1XQOnCG3.mp4" type="video/mp4" />
+        <source src="/videos/background.webm" type="video/webm" />
+        <source src="/videos/background.mp4" type="video/mp4" />
 	{/* Fallback GIF if videos don't load */}
-        <img src="https://nzfqms5c4kwquboy.public.blob.vercel-storage.com/background-9AP6TV59d1HiTi8lYxD1NsxCUFcHeS.gif" alt="Background Animation" className="w-full h-full object-cover" />
+        <img src="/videos/background.gif" alt="Background Animation" className="w-full h-full object-cover" />
       </video>
 
       <div className="content">
