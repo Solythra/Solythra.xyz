@@ -1,53 +1,15 @@
 'use client';
 
-import { list } from '@vercel/blob';
-import { useState, useEffect } from 'react';
-
 export default function Home() {
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    async function fetchVideos() {
-      try {
-        const response = await list();
-
-        // Find the latest video in Blob storage
-        const latestVideo = response.blobs.find(blob =>
-          blob.pathname.endsWith('.mp4') || blob.pathname.endsWith('.webm')
-        );
-
-        if (latestVideo) {
-          setVideoUrl(latestVideo.url);
-        }
-      } catch (error) {
-        console.error('Error fetching videos:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchVideos();
-  }, []);
-
   return (
     <main className="container">
       {/* Background Video */}
-      {loading ? (
-        <p>Loading video...</p>
-      ) : (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          className="backgroundVideo"
-        >
-          {videoUrl && <source src={videoUrl} type="video/mp4" />}
-          <img src="/videos/background.gif" alt="Background Animation" className="w-full h-full object-cover" />
-        </video>
-      )}
+      <video autoPlay muted loop playsInline preload="none" className="backgroundVideo">
+        <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486433/background_fgmxub.webm" type="video/webm" />
+        <source src="https://res.cloudinary.com/dcaabcqhl/video/upload/v1741486739/background_zdc12g.mp4" type="video/mp4" />
+        {/* Fallback for unsupported browsers */}
+        <img src="/videos/background.gif" alt="Background Animation" className="w-full h-full object-cover" />
+      </video>
 
       {/* Content */}
       <div className="content">
